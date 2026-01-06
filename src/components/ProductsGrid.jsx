@@ -1,9 +1,10 @@
 import React from "react";
 import ProductCard from "./ProductCard";
-import Skeleton from "./Skeleton";
 import ProductCardSkeleton from "./ProductCardSkeleton";
+import { useOutletContext } from "react-router-dom";
 
-const ProductsGrid = ({ allProducts, isLoading ,handleAddToCart}) => {
+const ProductsGrid = () => {
+  const { allProducts, isLoading, handleAddToCart } = useOutletContext();
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-8 md:py-12 bg-gray-50 flex flex-col gap-4">
       <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-gray-900 leading-none tracking-tight">
@@ -15,7 +16,11 @@ const ProductsGrid = ({ allProducts, isLoading ,handleAddToCart}) => {
               return <ProductCardSkeleton key={i} />;
             })
           : allProducts.map((product) => (
-              <ProductCard key={product.id} product={product} handleAddToCart={handleAddToCart}/>
+              <ProductCard
+                key={product.id}
+                product={product}
+                handleAddToCart={handleAddToCart}
+              />
             ))}
         {/* <ProductCardSkeleton /> */}
       </div>

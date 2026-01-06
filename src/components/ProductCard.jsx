@@ -22,7 +22,7 @@ const ProductCard = ({ product, handleAddToCart }) => {
           <h5 className="price text-2xl font-bold text-indigo-600">${price}</h5>
           <button
             onClick={() => {
-            return  handleAddToCart(product);
+              return handleAddToCart(product);
             }}
             className="bg-indigo-600 font-semibold rounded-2xl text-white px-4 py-2 cursor-pointer hover:bg-indigo-700 transition-all duration-200 active:bg-indigo-800 active:scale-95"
           >
