@@ -3,7 +3,7 @@ import Skeleton from "./Skeleton";
 
 const ProductCardSkeleton = () => {
   return (
-    <div className="bg-white rounded-xl border border-gray-200 shadow-sm shadow-black/5 hover:shadow-md transition-all duration-200 cursor-pointer w-75 max-w-80 md:max-w-67">
+    <div className="bg-white rounded-xl border border-gray-200 shadow-sm shadow-black/5 hover:shadow-md transition-all duration-200 cursor-pointer w-75 max-w-80 md:max-w-67 h-100 max-h-105">
       <div className="w-full rounded-lg overflow-hidden">
         <Skeleton className={"w-full h-50 max-h-50"} />
       </div>
