@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import CartPage from "./pages/CartPage.jsx";
 import App from "./App.jsx";
+import ProductsGrid from "./components/ProductsGrid.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <CartPage />,
+      },
+      {
+        path: "/products",
+        element: <ProductsGrid />,
       },
     ],
   },

@@ -13,7 +13,7 @@ const CartItem = ({ product }) => {
 
       <div className="py-2 md:py-3 px-1 col-span-2">
         <h3 className="text-sm">{title}</h3>
-        <h4 className="text-indigo-600 font-medium">${price}</h4>
+        <h4 className="text-indigo-600 font-medium">${(price*quantity).toFixed(2)}</h4>
       </div>
 
       <div className="col-span-1 hidden md:flex items-center justify-center">

@@ -41,6 +41,9 @@ const App = () => {
     (total, item) => total + item.quantity,
     0
   );
+
+  const cartItemsTotal = cartProducts.reduce((total,item)=> total+ (item.price*item.quantity),0)
+
   useEffect(() => {
     getProducts();
     let timer = setTimeout(() => {
@@ -59,6 +62,8 @@ const App = () => {
           isLoading,
           handleAddToCart,
           cartProducts,
+          cartCount,
+          cartItemsTotal
         }}
       />
       <Footer />

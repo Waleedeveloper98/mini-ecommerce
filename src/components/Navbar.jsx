@@ -10,7 +10,7 @@ const Navbar = ({cartCount}) => {
       </h2>
 
       <div className="flex items-center gap-5 md:gap-20">
-        <a className="font-medium text-sm md:text-base md:cursor-pointer" href="#">Products</a>
+        <Link to={"/products"} className="font-medium text-sm md:text-base md:cursor-pointer">Products</Link>
         <Link to={"/cart"} className="relative cursor-pointer">
         <div className="counter size-3.5 bg-indigo-600 rounded-full absolute -top-2 -right-2 flex items-center justify-center text-[8px] font-bold text-white">
           {cartCount}
