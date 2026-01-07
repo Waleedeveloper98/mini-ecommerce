@@ -13,6 +13,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -23,18 +24,14 @@ const router = createBrowserRouter([
         element: <CartPage />,
       },
       {
-        path: "/products",
+        path: "products",
         element: <ProductsGrid />,
       },
+      {
+        path: "order-success",
+        element: <ThankyouPage />,
+      },
     ],
-  },
-  {
-    path: "/order-success",
-    element: <ThankyouPage />,
-  },
-  {
-    path: "*",
-    element: <ErrorPage />,
   },
 ]);
 
