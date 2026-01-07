@@ -29,7 +29,7 @@ const CartSummary = ({
           </p>
         </div>
         <button
-          disabled={`${cartProducts.length <= 0 ? true : false}`}
+          disabled={cartProducts.length === 0}
           onClick={() => {
             navigate("/order-success");
             setCartProducts([]);
