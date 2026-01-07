@@ -6,8 +6,14 @@ import axios from "axios";
 import { Outlet } from "react-router-dom";
 
 const App = () => {
-  const [allProducts, setAllProducts] = useState([]);
-  const [cartProducts, setCartProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState(() => {
+    let saved = JSON.parse(localStorage.getItem("allProducts"));
+    return saved ? saved : [];
+  });
+  const [cartProducts, setCartProducts] = useState(() => {
+    let saved = JSON.parse(localStorage.getItem("cartProducts"));
+    return saved ? saved : [];
+  });
   const [isLoading, setIsLoading] = useState(true);
   const getProducts = async () => {
     try {
@@ -42,28 +48,39 @@ const App = () => {
     0
   );
 
-  const cartItemsTotal = cartProducts.reduce((total,item)=> total+ (item.price*item.quantity),0)
+  const cartItemsTotal = cartProducts.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
 
   useEffect(() => {
-    getProducts();
+    
     let timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
+      getProducts();
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("allProducts", JSON.stringify(allProducts));
+  }, [allProducts]);
+  useEffect(() => {
+    localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+  }, [cartProducts]);
+
   return (
     <div className="w-full max-w-7xl items-center justify-center m-auto">
       <Navbar cartCount={cartCount} />
-       <Outlet
+      <Outlet
         context={{
           allProducts,
           isLoading,
           handleAddToCart,
           cartProducts,
           cartCount,
-          cartItemsTotal
+          cartItemsTotal,
+          setCartProducts,
         }}
       />
       <Footer />

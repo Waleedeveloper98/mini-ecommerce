@@ -6,6 +6,8 @@ import Home from "./pages/Home.jsx";
 import CartPage from "./pages/CartPage.jsx";
 import App from "./App.jsx";
 import ProductsGrid from "./components/ProductsGrid.jsx";
+import ErrorPage from "./pages/ErrorPage.jsx";
+import ThankyouPage from "./pages/ThankyouPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
         element: <ProductsGrid />,
       },
     ],
+  },
+  {
+    path: "/order-success",
+    element: <ThankyouPage />,
+  },
+  {
+    path: "*",
+    element: <ErrorPage />,
   },
 ]);
 

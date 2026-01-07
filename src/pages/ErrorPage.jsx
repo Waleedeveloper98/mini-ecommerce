@@ -1,7 +1,9 @@
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ErrorPage = () => {
+  const navigate = useNavigate()
   return (
     <div className="fixed inset-0 w-full max-w-7xl m-auto text-center h-screen px-4 bg-gray-50 flex items-center justify-center flex-col space-y-4">
       <div className="rounded-full overflow-hidden">
@@ -15,12 +17,12 @@ const ErrorPage = () => {
         issue.
       </p>
       <div className="btns">
-        <button className="cursor-pointer text-gray-600 hover:text-gray-900 text-sm hover:underline transition-all duration-200 px-6 py-2 rounded-lg font-semibold">
+        <button onClick={()=> navigate("/")} className="cursor-pointer text-gray-600 hover:text-gray-900 text-sm hover:underline transition-all duration-200 px-6 py-2 rounded-lg font-semibold">
           Go Back
         </button>
-        <button className="bg-red-600 cursor-pointer text-white hover:bg-red-700 active:bg-red-800 px-6 py-2 rounded-lg font-semibold">
+        {/* <button className="bg-red-600 cursor-pointer text-white hover:bg-red-700 active:bg-red-800 px-6 py-2 rounded-lg font-semibold">
           Retry
-        </button>
+        </button> */}
       </div>
     </div>
   );
